@@ -31,8 +31,9 @@ Things you may want to cover:
 |password|string|null: false|
 
 ### Association
-- has_many :posts
 - has_many :groups
+- has_many :posts
+- has_many :images
 
 ## groups_テーブル
 
@@ -66,6 +67,8 @@ Things you may want to cover:
 |image_id|integer|foreign_key: true|
 
 ## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |image|string|null: false|
 
