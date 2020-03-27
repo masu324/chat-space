@@ -32,7 +32,6 @@ Things you may want to cover:
 
 ### Association
 - has_many :posts
-- has_many :comments
 - has_many :groups
 
 ## groups_テーブル
