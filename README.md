@@ -26,16 +26,25 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|name|string|null: false, foreign_key: true|
-|email|string|null: false, foreign_key: true|
+|name|string|null: false|
+|email|string|null: false|
+|password|string|null: false|
+
+### Association
+- has_many :posts
+- has_many :comments
+- has_many :groups
 
 ## groups_テーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|group_id|integer|null: false, foreign_key: true|
-|group_name|string|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+|group_name|string|null: false|
+
+### Association
+- belongs_to :user
+- has_many :posts
 
 ## groups_usersテーブル
 
@@ -48,18 +57,16 @@ Things you may want to cover:
 - belongs_to :group
 - belongs_to :user
 
-## messagesテーブル
+## postsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |body|text|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
-|image_id|string|null: false, foreign_key: true|
+|image_id|integer|foreign_key: true|
 
 ## imagesテーブル
 |user_id|integer|null: false, foreign_key: true|
-|name|string|null: false, foreign_key: true|
-|image_id|string|null: false, foreign_key: true|
-
+|image|string|null: false|
 
