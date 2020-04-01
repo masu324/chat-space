@@ -1,0 +1,41 @@
+.wrapper
+  .side-bar
+    .side-bar__side-header
+      .side-bar__side-header__side-box
+        %p.side-bar__side-header__side-box__username
+          K.Masuyama
+        %ul.side-bar__side-header__side-box__menu
+          %li.side-bar__side-header__edit-user
+            = link_to "#" do
+              =icon('fas', "edit")
+          %li.side-bar__side-header__newgroup
+            = link_to "#" do
+              =icon('fas', "cog")
+    .groups
+      = link_to "#", class:"group" do
+        %p.group__group-name
+          TECH||CAMP
+          %p.group__group-name__latest-message
+            試し中
+  .chat-main
+    .chat-main__main-header
+      .chat-main__main-header__header-leftbox
+        .chat-main__main-header__header-leftbox__group-name 
+          テスト
+          .chat-main__main-header__header-leftbox__group-name__username
+            Member:K.Masuyama
+
+      .edit
+        .edit__edit-button
+          = link_to "Edit", "#"
+
+    .messages
+      messageの位置
+    .form
+      %form.new-message
+        .input-box
+          %input{type: "text", class: "input-box__text", placeholder: "type a messages"}
+          %label{class: "input-box__image"}
+            =icon('fas', 'image')
+            %input{type: "file", class: "input-box__image__file"}
+        %input{type: "submit", class: "submit-btn", name: "commit", value: "Send"}
