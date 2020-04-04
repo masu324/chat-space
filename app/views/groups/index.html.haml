@@ -1,25 +1,2 @@
 .wrapper
-  = render 'messages/side_bar'
-
-  .chat-main
-    .chat-main__main-header
-      .chat-main__main-header__header-leftbox
-        .chat-main__main-header__header-leftbox__group-name 
-          テスト
-          .chat-main__main-header__header-leftbox__group-name__username
-            Member:K.Masuyama
-
-      .edit
-        .edit__edit-button
-          = link_to "Edit", "#"
-
-    .messages
-      messageの位置
-    .form
-      %form.new-message
-        .input-box
-          %input{type: "text", class: "input-box__text", placeholder: "type a messages"}
-          %label{class: "input-box__image"}
-            =icon('fas', 'image')
-            %input{type: "file", class: "input-box__image__file"}
-        %input{type: "submit", class: "submit-btn", name: "commit", value: "Send"}
+  = render "side-bar"
