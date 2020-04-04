@@ -40,6 +40,8 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'devise'
   gem 'pry-rails'
+  gem 'carrierwave'
+  gem 'mini_magick'
 end
 
 group :development do

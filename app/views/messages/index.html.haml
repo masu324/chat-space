@@ -1,23 +1,31 @@
 .wrapper
+  
+  = render 'groups/side-bar'
+  
   .chat-main
     .chat-main__main-header
       .chat-main__main-header__header-leftbox
-        .chat-main__main-header__header-leftbox__group-name 
-          テスト
+        .chat-main__main-header__header-leftbox__group-name
+          = @group.name
           .chat-main__main-header__header-leftbox__group-name__username
-            Member:K.Masuyama
-
+            %ul
+              Member:
+              - @group.users.each_with_index do |user, i|
+                - unless i.zero?
+                  ,
+                = user.name
       .edit
         .edit__edit-button
-          = link_to "Edit", "#"
+          = link_to "Edit", "edit"
 
     .messages
-      messageの位置
+      = render @messages
+  
     .form
-      %form.new-message
-        .input-box
-          %input{type: "text", class: "input-box__text", placeholder: "type a messages"}
-          %label{class: "input-box__image"}
-            =icon('fas', 'image')
-            %input{type: "file", class: "input-box__image__file"}
-        %input{type: "submit", class: "submit-btn", name: "commit", value: "Send"}
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
